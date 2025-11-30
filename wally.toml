@@ -4,5 +4,6 @@ version = "0.4.1+horse.0.1"
 license = "Apache2"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
+exclude = ["docs", "modules", "test", "testez-cli", "tests"]
 
 [dependencies]
