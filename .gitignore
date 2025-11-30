@@ -16,3 +16,6 @@
 # Project files and directories
 /.vscode
 /sourcemap.json
+
+# Miscellaneous
+/.local
