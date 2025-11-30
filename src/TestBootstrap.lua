@@ -2,9 +2,14 @@
 	Provides an interface to quickly run and report tests from a given object.
 ]]
 
-local TestPlanner = require(script.Parent.TestPlanner)
-local TestRunner = require(script.Parent.TestRunner)
-local TextReporter = require(script.Parent.Reporters.TextReporter)
+local IS_ROBLOX = game ~= nil
+local IS_LUNE = pcall(function() require("@lune/fs") end)
+
+local TestPlanner = require("./TestPlanner")
+local TestRunner = require("./TestRunner")
+local TextReporter = require("./Reporters/TextReporter")
+
+local tick = if IS_LUNE then os.clock else tick
 
 local TestBootstrap = {}
 
@@ -72,10 +77,20 @@ end
 function TestBootstrap:getModules(root)
 	local modules = {}
 
-	self:getModulesImpl(root, modules)
-
-	for _, child in ipairs(root:GetDescendants()) do
-		self:getModulesImpl(root, modules, child)
+	if IS_ROBLOX then
+		self:getModulesImpl(root, modules)
+	
+		for _, child in ipairs(root:GetDescendants()) do
+			self:getModulesImpl(root, modules, child)
+		end
+	elseif IS_LUNE then
+		table.insert(modules, {
+			method = root,
+			path = { "<lune>" },
+			pathStringForSorting = "<lune>"
+		})
+		-- for _, testFunction in root do
+		-- end
 	end
 
 	return modules

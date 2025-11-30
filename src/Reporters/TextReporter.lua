@@ -3,9 +3,9 @@
 	standard output and TestService.
 ]]
 
-local TestService = game:GetService("TestService")
+local TestService = game and game:GetService("TestService")
 
-local TestEnum = require(script.Parent.Parent.TestEnum)
+local TestEnum = require("../TestEnum")
 
 local INDENT = (" "):rep(3)
 local STATUS_SYMBOLS = {
@@ -95,7 +95,7 @@ function TextReporter.report(results)
 		print("")
 
 		for _, message in ipairs(results.errors) do
-			TestService:Error(message)
+			if TestService then TestService:Error(message) end
 
 			-- Insert a blank line after each error
 			print("")

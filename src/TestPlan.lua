@@ -5,8 +5,8 @@
 	TestPlan objects are produced by TestPlanner.
 ]]
 
-local TestEnum = require(script.Parent.TestEnum)
-local Expectation = require(script.Parent.Expectation)
+local TestEnum = require("./TestEnum")
+local Expectation = require("./Expectation")
 
 local function newEnvironment(currentNode, extraEnvironment)
 	local env = {}
