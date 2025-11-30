@@ -12,3 +12,6 @@
 
 # Cargo build output
 /target
+
+# Project files and directories
+/.vscode
