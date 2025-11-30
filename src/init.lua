@@ -15,7 +15,11 @@ local function run(testRoot, callback)
 	local plan = TestPlanner.createPlan(modules)
 	local results = TestRunner.runPlan(plan)
 
-	callback(results)
+	if callback then
+		callback(results)
+	else
+		TextReporter.report(results)
+	end
 end
 
 local TestEZ = {
