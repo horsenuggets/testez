@@ -89,8 +89,6 @@ function TestBootstrap:getModules(root)
 			path = { "<lune>" },
 			pathStringForSorting = "<lune>"
 		})
-		-- for _, testFunction in root do
-		-- end
 	end
 
 	return modules
