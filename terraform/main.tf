@@ -2,7 +2,7 @@
 # main.tf
 #
 # Manages this repository's GitHub settings, including merge options and the ruleset that
-# protects main. Run plans and applies from this folder with GITHUB_TOKEN
+# protects the default branch. Run plans and applies from this folder with GITHUB_TOKEN
 # set, for example "GITHUB_TOKEN=$(gh auth token) terraform plan".
 #
 
