@@ -19,3 +19,8 @@
 
 # Miscellaneous
 /.local
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
